@@ -8,6 +8,8 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh 'cd simple-java-maven-app'
+                sh 'mkdir floder'
                 sh 'mvn clean package'
             }
         }
