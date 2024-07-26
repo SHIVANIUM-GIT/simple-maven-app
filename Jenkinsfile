@@ -6,15 +6,15 @@ pipeline {
                 git 'https://github.com/SHIVANIUM-GIT/simple-java-maven-app.git'
             }
         }
-        stage('Build') {
-            steps {
-                sh '''
-                cd simple-java-maven-app
-                mkdir folder
-                mvn clean package
-                '''
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         sh '''
+        //         cd simple-java-maven-app
+        //         mkdir folder
+        //         mvn clean package
+        //         '''
+        //     }
+        // }
         // stage('Build Docker Image') {
         //     steps {
         //         script {
