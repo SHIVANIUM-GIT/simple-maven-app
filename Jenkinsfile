@@ -8,30 +8,37 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'cd simple-java-maven-app'
-                sh 'mkdir floder'
-                sh 'mvn clean package'
+                sh '''
+                cd simple-java-maven-app
+                mkdir folder
+                mvn clean package
+                '''
             }
         }
         // stage('Build Docker Image') {
         //     steps {
         //         script {
-        //             sh "docker build -t shivanium/javaweb:${tag} ."
+        //             sh '''
+        //             cd simple-java-maven-app
+        //             docker build -t shivanium/javaweb:${DOCKER_TAG} .
+        //             '''
         //         }
         //     }
         // }
         // stage('Push Docker Image on Docker Hub') {
         //     steps {
         //         script {
-        //             def tag = 'latest'
-        //             sh "docker push shivanium/javaweb:${tag}"
+        //             sh "docker push shivanium/javaweb:${DOCKER_TAG}"
         //         }
         //     }
         // }
-        stage('Deploy') {
-            steps {
-                sh 'java -jar target/*.jar'
-            }
-        }
+        // stage('Deploy') {
+        //     steps {
+        //         sh '''
+        //         cd simple-java-maven-app
+        //         java -jar target/*.jar
+        //         '''
+        //     }
+        // }
     }
 }
